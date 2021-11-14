@@ -13,6 +13,10 @@ const userReducer = (user = { isAuthenticated: false, user: {} }, action) => {
     case actionTypes.logoutUser:
       newUser = { ...user, isAuthenticated: false, user: {} };
       break;
+
+    case actionTypes.createUser:
+      newUser = { ...user, user: action.user };
+      break;
     default:
       newUser = user;
       break;

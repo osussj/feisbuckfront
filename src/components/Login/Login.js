@@ -1,13 +1,14 @@
 import { useState } from "react";
 import "./Login.css";
 import useUsers from "../../hooks/useUsers";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const initialData = {
     username: "",
     password: "",
   };
+  const navigate = useNavigate();
   const { loginUser } = useUsers();
   const [userData, setUserData] = useState(initialData);
   const changeData = (event) => {
@@ -19,6 +20,7 @@ const Login = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     loginUser(userData);
+    navigate("/home");
   };
 
   return (

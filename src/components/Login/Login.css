@@ -1,3 +1,6 @@
+body {
+  background-color: #f0f2f5;
+}
 .login-form {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -13,6 +16,13 @@
   color: #fff;
   font-weight: 700;
   height: 48px;
+  width: 100%;
+}
+.btn-custom:hover {
+  color: white;
+}
+.btn-custom {
+  color: #fff;
 }
 input {
   height: 52px;
@@ -24,5 +34,8 @@ input {
 }
 a {
   text-decoration: none;
-  color: inherit;
+}
+a:hover {
+  color: white;
+  text-decoration: none;
 }

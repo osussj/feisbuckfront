@@ -8,11 +8,12 @@ const LoginPage = () => {
   useEffect(() => {
     isLogged();
     if (user.isAuth) {
+      //
     }
   }, [isLogged, user.isAuth]);
   return (
     <>
-      <h1 className="main-title">LoginPage</h1>
+      <h1 className="main-title">Login Page</h1>
       <Login />
     </>
   );

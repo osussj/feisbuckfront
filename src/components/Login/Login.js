@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Login.css";
 import useUsers from "../../hooks/useUsers";
 
 const Login = () => {
@@ -20,35 +21,43 @@ const Login = () => {
   };
 
   return (
-    <form className="row g-3" onSubmit={onSubmit} autoComplete="off" noValidate>
-      <div className="col-auto">
-        <label htmlFor="username" className="visually-hidden">
-          Username
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="username"
-          placeholder="Username"
-          onChange={changeData}
-        />
+    <div class="row align-items-center justify-content-center vh-100">
+      <div className="col-md-5">
+        <form
+          className="login-form"
+          onSubmit={onSubmit}
+          autoComplete="off"
+          noValidate
+        >
+          <div className="mb-3">
+            <input
+              type="text"
+              id="username"
+              className="form-control"
+              placeholder="Email address or phone number"
+              onChange={changeData}
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="password"
+              id="password"
+              className="form-control"
+              placeholder="Password"
+              onChange={changeData}
+            />
+          </div>
+          <button className="btn btn-custom btn-lg btn-block mt-3">
+            Login
+          </button>
+          <div className="text-center pt-3 pb-3">
+            <button type="button" className="btn btn-success btn-lg mt-3">
+              Create New Account
+            </button>
+          </div>
+        </form>
       </div>
-      <div className="col-auto">
-        <label htmlFor="password" className="visually-hidden">
-          Password
-        </label>
-        <input
-          type="password"
-          className="form-control"
-          id="password"
-          placeholder="Password"
-          onChange={changeData}
-        />
-      </div>
-      <div className="col-auto">
-        <button className="btn btn-primary mb-3">Login</button>
-      </div>
-    </form>
+    </div>
   );
 };
 

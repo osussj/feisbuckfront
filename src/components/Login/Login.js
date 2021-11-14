@@ -21,7 +21,7 @@ const Login = () => {
   };
 
   return (
-    <div class="row align-items-center justify-content-center vh-100">
+    <div className="row align-items-center justify-content-center vh-100">
       <div className="col-md-5">
         <form
           className="login-form"

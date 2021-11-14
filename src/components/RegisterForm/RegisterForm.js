@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import useUsers from "../../hooks/useUsers";
 
 const RegisterForm = () => {
@@ -77,7 +78,9 @@ const RegisterForm = () => {
             />
           </div>
           <div className="text-center pt-3 pb-3">
-            <button className="btn btn-success btn-lg mt-3">Register</button>
+            <Link to="/">
+              <button className="btn btn-success btn-lg mt-3">Register</button>
+            </Link>
           </div>
         </form>
       </div>

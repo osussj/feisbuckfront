@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Login.css";
 import useUsers from "../../hooks/useUsers";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const initialData = {
@@ -51,9 +52,11 @@ const Login = () => {
             Login
           </button>
           <div className="text-center pt-3 pb-3">
-            <button type="button" className="btn btn-success btn-lg mt-3">
-              Create New Account
-            </button>
+            <Link to="/register">
+              <button type="button" className="btn btn-success btn-lg mt-3">
+                Create New Account
+              </button>
+            </Link>
           </div>
         </form>
       </div>

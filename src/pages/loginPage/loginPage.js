@@ -13,7 +13,6 @@ const LoginPage = () => {
   }, [isLogged, user.isAuth]);
   return (
     <>
-      <h1 className="main-title">Login Page</h1>
       <Login />
     </>
   );

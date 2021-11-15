@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useUsers from "../../hooks/useUsers";
 
 const RegisterForm = () => {
@@ -9,7 +9,9 @@ const RegisterForm = () => {
     password: "",
     age: "",
   };
+  const navigate = useNavigate();
   const { createUser } = useUsers();
+  const [buttonDisabled, setButtonDisabled] = useState(true);
   const [userRegisterData, setUserRegisterData] = useState(initialData);
 
   const changeData = (event) => {
@@ -18,7 +20,19 @@ const RegisterForm = () => {
       [event.target.id]: event.target.value,
     });
   };
-
+  useEffect(() => {
+    setButtonDisabled(
+      userRegisterData.name === "" ||
+        userRegisterData.username === "" ||
+        userRegisterData.password === "" ||
+        userRegisterData.age <= 0
+    );
+  }, [
+    userRegisterData.name,
+    userRegisterData.username,
+    userRegisterData.password,
+    userRegisterData.age,
+  ]);
   const onSubmit = (event) => {
     event.preventDefault();
     const newUser = {
@@ -28,6 +42,7 @@ const RegisterForm = () => {
       age: userRegisterData.age,
     };
     createUser(newUser);
+    navigate("/");
   };
 
   return (
@@ -62,6 +77,7 @@ const RegisterForm = () => {
               type="password"
               onChange={changeData}
               id="password"
+              autoComplete="off"
               className="form-control"
               placeholder="Enter your password"
             />
@@ -78,9 +94,12 @@ const RegisterForm = () => {
             />
           </div>
           <div className="text-center pt-3 pb-3">
-            <Link to="/">
-              <button className="btn btn-success btn-lg mt-3">Register</button>
-            </Link>
+            <button
+              className="btn btn-success btn-lg mt-3"
+              disabled={buttonDisabled}
+            >
+              Register
+            </button>
           </div>
         </form>
       </div>

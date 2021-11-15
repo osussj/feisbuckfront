@@ -18,3 +18,8 @@ export const isLoggedAction = (user) => ({
 export const logoutUserAction = () => ({
   type: actionTypes.logoutUser,
 });
+
+export const loadUsersAction = (users) => ({
+  type: actionTypes.loadUsers,
+  users,
+});
